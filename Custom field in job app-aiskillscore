@@ -16,7 +16,7 @@
   </field-permission>
 
   <field-permission type="write">
-    <description><![CDATA[write permission for Default, Screening-1 and Screening-2 statuses (Hiring Managers)]]></description>
+    <description><![CDATA[write permission for Default, Screening-1 and Screening-2 statuses (Hiring Managers.)]]></description>
     <role-name><![CDATA[G]]></role-name>
     <status><![CDATA[Default]]></status>
     <status><![CDATA[Screening-1]]></status>
