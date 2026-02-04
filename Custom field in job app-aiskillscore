@@ -1,19 +1,26 @@
-I want to create a new field in job application template in successfactors where the field id is "aiskillscore" of type "number" and is a custom field and should be given write access to recruiters(R), Hiring Managers(G) roles for statuses "Default","Screening-1" and "Screening-2".
-Give me the xml code as per below SAP SuccessFactors standards:
-I want the permissions in below format:
-<field-permission type="read">
-      <description><![CDATA[read permission for In-Progress Statuses]]></description>
-      <role-name><![CDATA[C]]></role-name>
-      <status><![CDATA[Plum Invite]]></status>
-      <status><![CDATA[Plum In-Progress]]></status>
-      <status><![CDATA[Plum Complete]]></status>
-      <field application-field-id="englishProf" />
-      <field application-field-id="frenchProf" />
-    </field-permission>
-The field definition should be in the below format:
-<field-definition id="NumberofDays" type="text" required="false" custom="true" public="false" readOnly="true" anonymize="false" forward-intact="true" sensitive="false">
-  <field-label><![CDATA[Number of Days]]></field-label>
-  <field-label lang="fr_CA"><![CDATA[Number of Days]]></field-label>
-  <field-description><![CDATA[Number of Days]]></field-description>
+<?xml version="1.0" encoding="UTF-8"?>
+<application-fields>
+  <field-definition id="aiskillscore" type="number" required="false" custom="true" public="false" readOnly="false" anonymize="false" forward-intact="true" sensitive="false">
+    <field-label><![CDATA[AI Skill Score]]></field-label>
+    <field-label lang="fr_CA"><![CDATA[Score de compétence IA]]></field-label>
+    <field-description><![CDATA[AI model-assigned skill score]]></field-description>
   </field-definition>
 
+  <field-permission type="write">
+    <description><![CDATA[write permission for Default, Screening-1 and Screening-2 statuses (Recruiters)]]></description>
+    <role-name><![CDATA[R]]></role-name>
+    <status><![CDATA[Default]]></status>
+    <status><![CDATA[Screening-1]]></status>
+    <status><![CDATA[Screening-2]]></status>
+    <field application-field-id="aiskillscore" />
+  </field-permission>
+
+  <field-permission type="write">
+    <description><![CDATA[write permission for Default, Screening-1 and Screening-2 statuses (Hiring Managers)]]></description>
+    <role-name><![CDATA[G]]></role-name>
+    <status><![CDATA[Default]]></status>
+    <status><![CDATA[Screening-1]]></status>
+    <status><![CDATA[Screening-2]]></status>
+    <field application-field-id="aiskillscore" />
+  </field-permission>
+</application-fields>
